@@ -16,7 +16,7 @@ public class Cliente {
         Socket soquete = new Socket ("127.0.0.1", 13000); //estabele uma conexão com o endereço ip do outro computador (nesse caso local) e porta escolhida.
         byte[] array_byte = new byte[tamanhoArquivo]; //agirá como um buffer para armazenar dados temporários.
          InputStream is = soquete.getInputStream(); //coletar toda a informação passando pelo conexão.
-         FileOutputStream fos = new FileOutputStream("/home/saulosj/eclipse-workspace/Transfer/src/testes/recebidos/teste3.txt"); //aponta para o arquivo onde serão armazenados os dados copiados do servidor.
+         FileOutputStream fos = new FileOutputStream("/home/saulosj/eclipse-workspace/Transfer/src/testes/recebidos/teste.txt.7z"); //aponta para o arquivo onde serão armazenados os dados copiados do servidor.
          BufferedOutputStream bos = new BufferedOutputStream(fos); //escreve os dados adquiridos no arquivo especificado.
          bytesLidos = is.read(array_byte, 0, array_byte.length); //dados lidos são armazenados em array_ byte.
          total = bytesLidos;
