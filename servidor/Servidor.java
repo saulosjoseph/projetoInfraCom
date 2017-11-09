@@ -37,7 +37,7 @@ public class Servidor implements Runnable{
 		// TODO Auto-generated method stub
 		try {
 			System.out.println("Conexão aceita: " + soquete);
-			File transferir = new File("/home/saulosj/eclipse-workspace/Transfer/src/testes/teste.txt.7z"); //define o documento a ser transferido.
+			File transferir = new File("/home/saulosj/eclipse-workspace/Transfer/src/testes/teste.7z"); //define o documento a ser transferido.
 			byte[] array_byte = new byte[(int)transferir.length()]; //cria um array de bytes com o tamanho(em bytes) do arquivo a ser transferido para armazenar dados temporários.
 			FileInputStream fin = new FileInputStream(transferir); //define para ler os dados contidos no arquivo a ser transferido.
 			BufferedInputStream bin = new BufferedInputStream(fin);
@@ -56,12 +56,6 @@ public class Servidor implements Runnable{
 			e.printStackTrace();
 		}
 	}
-
-	public static void main(String[] args) throws IOException {
-		Servidor servidor = new Servidor(13000);
-		servidor.start();
-	}
-
 }
 
 
