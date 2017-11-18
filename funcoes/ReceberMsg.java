@@ -1,4 +1,4 @@
-package funções;
+package funcoes;
 
 import java.io.IOException;
 import java.io.InputStream;

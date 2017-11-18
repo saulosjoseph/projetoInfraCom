@@ -1,4 +1,4 @@
-package funções;
+package funcoes;
 
 import java.net.InetAddress;
 import java.util.GregorianCalendar;

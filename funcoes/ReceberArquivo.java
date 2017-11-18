@@ -1,4 +1,4 @@
-package funções;
+package funcoes;
 
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
