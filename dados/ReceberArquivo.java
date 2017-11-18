@@ -1,4 +1,4 @@
-package funcoes;
+package dados;
 
 import java.io.BufferedOutputStream;
 import java.io.FileNotFoundException;
@@ -30,7 +30,7 @@ public class ReceberArquivo{
 
 	public void baixar() throws SocketException {
 		try {
-			FileOutputStream fos = new FileOutputStream("/home/rute/workspace/transferProjetoInfracom/teste/recebidos/teste.zip");
+			FileOutputStream fos = new FileOutputStream("/home/CIN/ssj2/Downloads/b.pdf");
 			BufferedOutputStream bos = new BufferedOutputStream(fos); //escreve os dados adquiridos no arquivo especificado.
 			this.bytesLidos = this.is.read(this.array_byte, 0, this.array_byte.length); //dados lidos são armazenados em array_ byte.
 			this.total = this.bytesLidos;

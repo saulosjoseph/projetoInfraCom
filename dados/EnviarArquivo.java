@@ -1,4 +1,4 @@
-package funcoes;
+package dados;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -18,7 +18,7 @@ public class EnviarArquivo{
 	public void enviar() {
 		// TODO Auto-generated method stub
 		try {
-			File transferir = new File("/home/rute/workspace/transferProjetoInfracom/teste/teste.png"); //define o documento a ser transferido.
+			File transferir = new File("/home/CIN/ssj2/Downloads/a.pdf"); //define o documento a ser transferido.
 			byte[] array_byte = new byte[(int)transferir.length()]; //cria um array de bytes com o tamanho(em bytes) do arquivo a ser transferido para armazenar dados temporários.
 			FileInputStream fin = new FileInputStream(transferir); //define para ler os dados contidos no arquivo a ser transferido.
 			BufferedInputStream bin = new BufferedInputStream(fin);

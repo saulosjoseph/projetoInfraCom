@@ -4,9 +4,10 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import comandos.ReceberMsg;
+
 //import funções.EnviarArquivo;
 //import funções.EnviarMsg;
-import funções.ReceberMsg;
 
 public class Servidor implements Runnable{
 

@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketException;
 
-import funções.*;
+import dados.ReceberArquivo;
 
 public class Cliente {
 

@@ -7,7 +7,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 		Usuario usuario1 = new Usuario();		
-		usuario1.conectar("10.0.0.107");
+		usuario1.conectar("localhost");
 		usuario1.enviarMsg("baixar");
 	}
 

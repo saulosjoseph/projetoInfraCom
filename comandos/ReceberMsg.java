@@ -1,9 +1,11 @@
-package funcoes;
+package comandos;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 import java.util.Scanner;
+
+import dados.EnviarArquivo;
 
 public class ReceberMsg implements Runnable{
 

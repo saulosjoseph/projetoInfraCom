@@ -1,7 +1,6 @@
 package usuario;
 
-import funções.EnviarMsg;
-//import funções.ReceberMsg;
+import comandos.EnviarMsg;
 
 public class Usuario {
 	private Servidor servidor;
