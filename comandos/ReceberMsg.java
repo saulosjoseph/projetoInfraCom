@@ -3,9 +3,11 @@ package comandos;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.Scanner;
 
 import dados.EnviarArquivo;
+import dados.ReceberArquivo;
 
 public class ReceberMsg implements Runnable{
 
@@ -13,7 +15,8 @@ public class ReceberMsg implements Runnable{
 	private Socket soquete;
 	private Scanner s;
 	private String msg;
-
+	private EnviarArquivo enviar;
+	
 	public ReceberMsg(Socket soquete){
 		this.soquete = soquete;
 		try {
@@ -23,16 +26,33 @@ public class ReceberMsg implements Runnable{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 	}
+	
+	
 	public void run() {
 		// TODO Auto-generated method stub
 		while(s.hasNextLine()) {
 			this.msg = s.nextLine();
-			if(msg.equals("baixar")){
-				new EnviarArquivo(this.soquete).enviar();
+			if(msg.equals("ok")){
+				try {
+					this.enviar.enviar();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}else if (msg.equals("baixar")){
+				this.enviar = new EnviarArquivo(this.soquete);
+				this.enviar.preparar();
+			} else {
+				try {
+					new EnviarMsg(this.soquete).enviar("ok");
+					new ReceberArquivo(this.soquete, msg).baixar();
+				} catch (SocketException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			this.imprimir("recebido de " + this.soquete.getInetAddress().getHostAddress() + " : " + this.msg);
+			this.imprimir("recebido de " + this.soquete.getInetAddress().getHostAddress() + ": " + this.msg);
 		}
 	}
 	

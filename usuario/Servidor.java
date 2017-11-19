@@ -6,15 +6,12 @@ import java.net.Socket;
 
 import comandos.ReceberMsg;
 
-//import funções.EnviarArquivo;
-//import funções.EnviarMsg;
 
 public class Servidor implements Runnable{
 
 	private ServerSocket server;
 	private Socket soquete;
 	private int porta = 6969;
-	//private EnviarMsg enviar;
 	
 	public void iniciar(){
 		new Thread(this).start();
@@ -30,9 +27,6 @@ public class Servidor implements Runnable{
 				this.soquete = server.accept(); //espera por qualquer conexão de clientes.
 				System.out.println("------------------------------");
 				System.out.println(this.soquete.getInetAddress().getHostAddress() + " conectado");
-				//enviar = new EnviarMsg(this.soquete);
-				//enviar.enviar("ajuda() para mostrar ajuda");
-				//new EnviarArquivo(this.soquete).enviar();
 				new Thread(new ReceberMsg(this.soquete)).start();
 			}
 		} catch (IOException e) {

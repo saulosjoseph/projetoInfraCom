@@ -23,5 +23,4 @@ public class EnviarMsg{
 		ps.println(msg);
 		System.out.println("mensagem enviada para " + this.soquete.getInetAddress().getHostAddress());
 	}
-
 }

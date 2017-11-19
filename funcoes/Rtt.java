@@ -1,36 +1,44 @@
 package funcoes;
 
+
+/*
+ * 
+ * 
+ */
+
+
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.GregorianCalendar;
 
-public class Rtt implements Runnable{
+public class Rtt{
 	
-	private String ipAddress;
+	private long fim;
+	private long inicio;
+	private InetAddress inet;
 	
 	public Rtt(String ip){
-		this.ipAddress = ip;
+		try {
+			this.inet = InetAddress.getByName(ip);
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
-	public void run() {
+	public long ping() {
 		// TODO Auto-generated method stub
 		try {
 			
-			InetAddress inet = InetAddress.getByName(this.ipAddress);
-
-			//System.out.println("Sending Ping Request to " + this.ipAddress);
-
-			long finish = 0;
-			long start = new GregorianCalendar().getTimeInMillis();
-
-			if (inet.isReachable(5000)){
-				finish = new GregorianCalendar().getTimeInMillis();
-				System.out.println("RTT: " + (finish - start + "ms"));
-			} else {
-				System.out.println(this.ipAddress + " NOT reachable.");
+			this.inicio = new GregorianCalendar().getTimeInMillis();	
+			
+			if (this.inet.isReachable(5000)){
+				this.fim = new GregorianCalendar().getTimeInMillis();
+				return ((this.fim - this.inicio));
 			}
 		} catch ( Exception e ) {
-			System.out.println("Exception:" + e.getMessage());
-		}			
+		}
+		return 0;		
 	}
 
 }

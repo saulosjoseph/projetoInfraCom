@@ -1,35 +1,30 @@
 package usuario;
 
 import comandos.EnviarMsg;
+import comandos.ReceberMsg;
 
 public class Usuario {
 	private Servidor servidor;
 	private Cliente cliente;
-	private EnviarMsg enviar;
+	private EnviarMsg enviarC;
 	
 	
 	public Usuario(){
-		this.servidor = new Servidor();
 		this.cliente = new Cliente();
 	}
 	
 	public void conectar(String ip){
 		this.cliente.conectar(ip);
-		enviar = new EnviarMsg(this.cliente.pegarSoquete());
+		enviarC = new EnviarMsg(this.cliente.pegarSoquete());
+		new Thread(new ReceberMsg(this.cliente.pegarSoquete())).start();
 	}
 	
 	public void iniciarServidor(){
+		this.servidor = new Servidor();
 		this.servidor.iniciar();
 	}
 	
-	public void baixar(){
-		this.cliente.baixar();
-	}
-	
 	public void enviarMsg(String msg){
-		this.enviar.enviar(msg);
-		if(msg.equals("baixar")){
-			this.baixar();
-		}
+		this.enviarC.enviar(msg);
 	}
 }
