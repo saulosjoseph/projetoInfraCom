@@ -16,6 +16,11 @@ public class ReceberMsg implements Runnable{
 	private Scanner s;
 	private String msg;
 	private EnviarArquivo enviar;
+	private String caminho;
+	
+	public void setCaminho(String caminho) {
+		this.caminho = caminho;
+	}
 	
 	public ReceberMsg(Socket soquete){
 		this.soquete = soquete;
@@ -42,11 +47,11 @@ public class ReceberMsg implements Runnable{
 				}
 			}else if (msg.equals("baixar")){
 				this.enviar = new EnviarArquivo(this.soquete);
-				this.enviar.preparar();
+				this.enviar.preparar(this.caminho);
 			} else {
 				try {
 					new EnviarMsg(this.soquete).enviar("ok");
-					new ReceberArquivo(this.soquete, msg).baixar();
+					new ReceberArquivo(this.soquete, msg, this.caminho).baixar();
 				} catch (SocketException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

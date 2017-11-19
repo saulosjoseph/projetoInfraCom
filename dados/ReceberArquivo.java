@@ -21,14 +21,14 @@ public class ReceberArquivo{
 	private BufferedOutputStream bos;
 	private posicaoTrans posi;
 
-	public ReceberArquivo(Socket soquete, String tamanho){
+	public ReceberArquivo(Socket soquete, String tamanho, String caminho){
 		this.soquete = soquete;
 		this.posi = new posicaoTrans(Long.valueOf(tamanho).longValue());
 		try {
 			this.is = this.soquete.getInputStream();
 			this.array_byte = new byte[52428800];
 			this.ping = new Rtt(this.soquete.getInetAddress().getHostAddress());
-			this.fos = new FileOutputStream("/home/CIN/ssj2/Downloads/example2.txt");
+			this.fos = new FileOutputStream(caminho);
 			this.bos = new BufferedOutputStream(fos); //escreve os dados adquiridos no arquivo especificado.
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

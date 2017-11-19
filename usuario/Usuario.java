@@ -1,3 +1,4 @@
+
 package usuario;
 
 import comandos.EnviarMsg;
@@ -13,14 +14,16 @@ public class Usuario {
 		this.cliente = new Cliente();
 	}
 	
-	public void conectar(String ip){
-		this.cliente.conectar(ip);
+	public void conectar(String ip, int porta, String caminho) {
+		this.cliente.conectar(ip, porta);
 		enviarC = new EnviarMsg(this.cliente.pegarSoquete());
-		new Thread(new ReceberMsg(this.cliente.pegarSoquete())).start();
+		ReceberMsg receber = new ReceberMsg(this.cliente.pegarSoquete());
+		receber.setCaminho(caminho);
+		new Thread(receber).start();
 	}
 	
-	public void iniciarServidor(){
-		this.servidor = new Servidor();
+	public void iniciarServidor(int porta, String caminho){
+		this.servidor = new Servidor(porta, caminho);
 		this.servidor.iniciar();
 	}
 	
