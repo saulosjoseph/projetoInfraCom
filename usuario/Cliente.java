@@ -7,10 +7,8 @@ import java.net.Socket;
 public class Cliente {
 
 	private Socket soquete;
-	private int porta = 6969;
 
-	
-	public void conectar(String ip) {
+	public void conectar(String ip, int porta) {
 		try {
 			this.soquete = new Socket (ip, porta); //estabele uma conexão com o endereço ip do outro computador (nesse caso local) e porta escolhida.
 		} catch (IOException e) {
