@@ -17,9 +17,14 @@ public class ReceberMsg implements Runnable{
 	private String msg;
 	private EnviarArquivo enviar;
 	private String caminho;
+	private int tamanho_arquivo;
 	
 	public void setCaminho(String caminho) {
 		this.caminho = caminho;
+	}
+	
+	public  int getTamanho() { //retorna tamanho do arquivo
+		return this.tamanho_arquivo;
 	}
 	
 	public ReceberMsg(Socket soquete){
@@ -48,6 +53,7 @@ public class ReceberMsg implements Runnable{
 			}else if (msg.equals("baixar")){
 				this.enviar = new EnviarArquivo(this.soquete);
 				this.enviar.preparar(this.caminho);
+				this.tamanho_arquivo = this.enviar.getTamanho();
 			} else {
 				try {
 					new EnviarMsg(this.soquete).enviar("ok");
