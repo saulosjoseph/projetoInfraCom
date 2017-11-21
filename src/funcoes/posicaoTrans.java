@@ -14,8 +14,8 @@ public class posicaoTrans {
 	}
 	
 	/*
-	 * usa a quantidade de bits j√° salvos no buffer como parametro.
-	 * retorna a posi√ß√£o atual em %.
+	 * usa a quantidade de bits j· salvos no buffer como parametro.
+	 * retorna a posiÁ„o atual em %.
 	 */
 	public long atual(long atual){
 		return (atual*100)/this.tamTotal;

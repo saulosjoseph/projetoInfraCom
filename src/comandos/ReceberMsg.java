@@ -38,10 +38,10 @@ public class ReceberMsg implements Runnable{
 	}
 	
 	/*
-	 * fica "ouvindo" a conex√£o de comandos.
-	 * ao chegar mensagens checa se elas est√£o protocoladas.
+	 * fica "ouvindo" a conex„o de comandos.
+	 * ao chegar mensagens checa se elas est„o protocoladas.
 	 * se estiverem protocoladas, seguem o protocolo.
-	 * caso contr√°rio, infere-se que a mensagem seja o tamanho do arquivo especificado para download e segue o protocolo.
+	 * caso contr·rio, infere-se que a mensagem seja o tamanho do arquivo especificado para download e segue o protocolo.
 	 */
 	public void run() {
 		// TODO Auto-generated method stub

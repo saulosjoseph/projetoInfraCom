@@ -2,10 +2,10 @@ package funcoes;
 
 
 /* 
- * salva o horario com precis√£o de milisegundos.
- * checa se o endere√ßo de interesse est√° acess√≠vel.
- * salva o novo hor√°rio com precis√£o de milisegundos.
- * subtrai o segundo hor√°rio do primeiro e retorna o resultado.
+ * salva o horario com precis„o de milisegundos.
+ * checa se o endereÁo de interesse est· acessÌvel.
+ * salva o novo hor·rio com precis„o de milisegundos.
+ * subtrai o segundo hor·rio do primeiro e retorna o resultado.
  */
 
 

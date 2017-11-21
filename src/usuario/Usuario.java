@@ -20,7 +20,7 @@ public class Usuario {
 	}
 	
 	
-	 // ao se conectar com um servidor, o usu√°rio primeiro inicia uma conex√£o de comandos com o servidor (envia e recebe mensagens)	
+	 // ao se conectar com um servidor, o usu·rio primeiro inicia uma conex„o de comandos com o servidor (envia e recebe mensagens)	
 	public void conectar(String ip, int porta, String caminho) {
 		this.cliente.conectar(ip, porta);
 		enviarC = new EnviarMsg(this.cliente.pegarSoquete());
@@ -34,7 +34,7 @@ public class Usuario {
 		this.servidor.iniciar();
 	}
 	
-	//√© com essa fun√ß√£o que se d√° a troca de comandos entre cliente e servidor (entre usuarios)
+	//È com essa funÁ„o que se d· a troca de comandos entre cliente e servidor (entre usuarios)
 	public void enviarMsg(String msg){
 		this.enviarC.enviar(msg);
 	}
