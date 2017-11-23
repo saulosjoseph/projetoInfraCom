@@ -26,6 +26,15 @@ public class SUcliente extends JFrame {
 	private String ip;
 	private int porta;
 	private String caminho;
+	private static int tamanho_arquivo;
+	
+	public void setTamanho(int tamanho) {
+		this.tamanho_arquivo = tamanho;
+	}
+	
+	public static int getTamanho() {
+		return tamanho_arquivo;
+	}
 	
 
 	/**
@@ -91,6 +100,8 @@ public class SUcliente extends JFrame {
 				
 				user.conectar(ip, porta, caminho);
 				user.enviarMsg("baixar");
+				setTamanho(user.getTamanho());
+				new Andamento().setVisible(true);
 			}
 		});
 		btnNewButton.setBounds(150, 190, 120, 35);

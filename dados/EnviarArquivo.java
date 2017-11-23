@@ -16,6 +16,7 @@ public class EnviarArquivo{
 	private Socket soquete;
 	private Rtt ping;
 	private File arquivo;
+	private int tamanho;
 	private byte[] array_byte;
 	private FileInputStream fin;
 	private DataOutputStream dos;
@@ -29,18 +30,23 @@ public class EnviarArquivo{
 		// TODO Auto-generated method stub
 		try {
 			this.arquivo = new File(caminho); //define o documento a ser transferido.
+			this.tamanho = (int)this.arquivo.length(); //define o tamanho do arquivo (em bytes)
 			this.array_byte = new byte[52428800]; //cria um array de bytes com o tamanho(em bytes) do arquivo a ser transferido para armazenar dados temporÃ¡rios.
 			this.fin = new FileInputStream(this.arquivo); //define para ler os dados contidos no arquivo a ser transferido.
 			this.dos = new DataOutputStream(this.soquete.getOutputStream());
 			this.ping = new Rtt(this.soquete.getInetAddress().getHostAddress());
 			
 			//envia tamanho do arquivo para o cliente
-			new EnviarMsg(this.soquete).enviar(String.valueOf(this.arquivo.length()));
+			new EnviarMsg(this.soquete).enviar(String.valueOf(this.tamanho));
 
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public int getTamanho() { //retorna o  tamanho do arquivo
+		return this.tamanho;
 	}
 
 	public void enviar() throws IOException{

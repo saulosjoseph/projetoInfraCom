@@ -13,6 +13,7 @@ public class Servidor implements Runnable{
 	private Socket soquete;
 	private int porta;
 	private String caminho;
+	private int tamanho_arquivo;
 	
 	public Servidor(int porta, String caminho) {
 		this.porta = porta;
@@ -39,6 +40,7 @@ public class Servidor implements Runnable{
 				ReceberMsg receber = new ReceberMsg(this.soquete); //classe que espera a msg "baixar" para confirmar o pedido de download.
 				receber.setCaminho(this.caminho); //especifica o caminho onde está o arquivo a ser enviado.
 				new Thread(receber).start(); //inicia a thread para enviar ou não o arquivo.
+				tamanho_arquivo = receber.getTamanho(); //OBS.: ISSO TALVEZ DÊ BUG POR CAUSA DO USO DE THREAD
 			}
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
