@@ -9,6 +9,10 @@ import java.util.Scanner;
 import dados.EnviarArquivo;
 import dados.ReceberArquivo;
 
+/*
+ * recebe mensagens de comando
+ */
+
 public class ReceberMsg implements Runnable{
 
 	private InputStream input;
@@ -38,7 +42,12 @@ public class ReceberMsg implements Runnable{
 		}
 	}
 	
-	
+	/*
+	 * fica "ouvindo" a conexão de comandos.
+	 * ao chegar mensagens checa se elas estão protocoladas.
+	 * se estiverem protocoladas, seguem o protocolo.
+	 * caso contrário, infere-se que a mensagem seja o tamanho do arquivo especificado para download e segue o protocolo.
+	 */
 	public void run() {
 		// TODO Auto-generated method stub
 		while(s.hasNextLine()) {

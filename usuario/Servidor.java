@@ -24,7 +24,10 @@ public class Servidor implements Runnable{
 		new Thread(this).start();
 	}
 	
-	
+	/*
+	 * thread espera cliente se conectar ao servidor.
+	 * após conexão estabelecida, abre-se uma conexão de comandos.
+	 */
 	public void run() {
 		// TODO Auto-generated method stub
 		try {

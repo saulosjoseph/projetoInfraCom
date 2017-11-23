@@ -1,5 +1,9 @@
 package comandos;
 
+/*
+ * envia mensagens de comando
+ */
+
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;

@@ -1,6 +1,11 @@
 
 package usuario;
 
+/*
+ * usuario controla cliente e servidor
+ * 
+ */
+
 import comandos.EnviarMsg;
 import comandos.ReceberMsg;
 
@@ -14,6 +19,8 @@ public class Usuario {
 		this.cliente = new Cliente();
 	}
 	
+	
+	 // ao se conectar com um servidor, o usuário primeiro inicia uma conexão de comandos com o servidor (envia e recebe mensagens)	
 	public void conectar(String ip, int porta, String caminho) {
 		this.cliente.conectar(ip, porta);
 		enviarC = new EnviarMsg(this.cliente.pegarSoquete());
@@ -33,6 +40,7 @@ public class Usuario {
 		this.servidor.iniciar();
 	}
 	
+	//é com essa função que se dá a troca de comandos entre cliente e servidor (entre usuarios)
 	public void enviarMsg(String msg){
 		this.enviarC.enviar(msg);
 	}

@@ -1,9 +1,11 @@
 package funcoes;
 
 
-/*
- * 
- * 
+/* 
+ * salva o horario com precisão de milisegundos.
+ * checa se o endereço de interesse está acessível.
+ * salva o novo horário com precisão de milisegundos.
+ * subtrai o segundo horário do primeiro e retorna o resultado.
  */
 
 
