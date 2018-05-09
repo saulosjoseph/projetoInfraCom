@@ -1,5 +1,1 @@
-# protocolo
-cliente envia "baixar" ao servidor.<br />
-servidor envia o tamanho do arquivo ao cliente.<br />
-cliente envia "ok" ao servidor.<br />
-transferência do arquivo iniciada.<br />
+Projeto da cadeira Infra-Estrutura de Comunicação (IF678), 2017.2
